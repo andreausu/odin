@@ -7,7 +7,8 @@ from flask import Flask
 
 from odin.controllers.main.views import main
 from odin.extensions import (
-    bootstrap
+    bootstrap,
+    db
 )
 
 
@@ -25,6 +26,7 @@ def create_app(object_name):
 
     # Initialize Extensions
     bootstrap.init_app(app)
+    db.init_app(app)
 
     # Register Blueprints
     app.register_blueprint(main)

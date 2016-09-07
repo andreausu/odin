@@ -22,6 +22,7 @@ class ProdConfig(Config):
 class DevConfig(Config):
     ENV = 'dev'
     DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///odin-dev.sqlite'
 
 
 class TestConfing(Config):
