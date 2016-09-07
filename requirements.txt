@@ -6,3 +6,8 @@ Flask-Script
 Flask-WTF
 Flask-SQLAlchemy
 Flask-Migrate
+
+# Development Requirements
+# TODO Split this out later
+pytest
+pytest-cov
