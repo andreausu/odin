@@ -1,6 +1,12 @@
 # Python Environment
 env/
 __pycache__/
+.cache/
+.DS_Store
 
 # Development Database
 *.sqlite
+
+# Local Test Reports
+htmlcov/
+.coverage

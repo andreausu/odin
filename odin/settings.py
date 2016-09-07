@@ -12,6 +12,7 @@ _cwd = os.path.dirname(os.path.abspath(__file__))
 class Config(object):
     SECRET_KEY = 'secret'
     LOG_FILE = os.path.join(_cwd, 'odin.log')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ProdConfig(Config):
@@ -25,7 +26,7 @@ class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///odin-dev.sqlite'
 
 
-class TestConfing(Config):
+class TestConfig(Config):
     ENV = 'test'
     DEBUG = True
     WTF_CSRF_ENABLED = False
