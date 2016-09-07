@@ -3,9 +3,6 @@
 :copyright: (c) 2016 by Lev Lazinskiy
 :license: MIT, see LICENSE for more details.
 """
-
-import enum
-
 from odin import db
 from odin.models.base import Base
 
