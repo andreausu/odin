@@ -1,0 +1,6 @@
+Flask
+
+# Flask Extensions
+Flask-Bootstrap
+Flask-Script
+Flask-WTF
