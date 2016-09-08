@@ -34,11 +34,11 @@ class MeetingActionItem(Base):
 
     statuses = db.relationship(
         'MeetingActionItemStatus', backref='MeetingActionItem',
-        lazy='dynamic'
+        lazy='dynamic', uselist=True
     )
     priorities = db.relationship(
         'MeetingActionItemPriorty', backref='MeetingActionItem',
-        lazy='dynamic'
+        lazy='dynamic', uselist=True
     )
 
 
