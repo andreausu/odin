@@ -7,6 +7,8 @@
 
 import os
 import sys
+import unittest
+import xmlrunner
 
 from flask_script import Manager, Server
 from flask_script.commands import Command
@@ -18,32 +20,10 @@ from odin.models.meeting import Meeting, MeetingActionItem, \
     MeetingActionItemStatus, MeetingActionItemPriorty
 
 
-def test(marker="not functional and not integration"):
-    test_args = [
-        '--strict', '--verbose', '--tb=long',
-        'tests', '-m', marker
-    ]
-    import pytest
-    error_number = pytest.main(test_args)
-    sys.exit(error_number)
-
-
 class Test(Command):
     def run(self):
-        self.test_suite = True
-        test()
-
-
-class Integration(Command):
-    def run(self):
-        self.test_suite = True
-        test(marker="intgration")
-
-
-class Functional(Command):
-    def run(self):
-        self.test_suite = True
-        test(marker="functional")
+        tests = unittest.TestLoader().discover('tests')
+        results = xmlrunner.XMLTestRunner(output='test-reports').run(tests)
 
 
 env = os.environ.get('ODIN_ENV', 'dev')
@@ -55,7 +35,7 @@ manager = Manager(app)
 manager.add_command('server', Server)
 manager.add_command('db', MigrateCommand)
 manager.add_command('test', Test)
-manager.add_command('Integration', Integration)
+
 
 if __name__ == "__main__":
     manager.run()

@@ -30,3 +30,4 @@ class TestConfig(Config):
     ENV = 'test'
     DEBUG = True
     WTF_CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///odin-test.sqlite'

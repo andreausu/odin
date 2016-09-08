@@ -9,4 +9,5 @@ __pycache__/
 
 # Local Test Reports
 htmlcov/
+test-reports/
 .coverage
